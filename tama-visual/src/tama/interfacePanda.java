@@ -8,7 +8,7 @@ public class interfacePanda extends JFrame {
     private JLabel imagemLabel;
     private JLabel tempoLabel;
     private Jogo jogo;
-    private Panda panda; 
+    private Panda panda;
 
     public interfacePanda(Panda panda) {
         this.panda = panda;
@@ -28,8 +28,7 @@ public class interfacePanda extends JFrame {
                 Graphics2D g2d = (Graphics2D) g;
                 GradientPaint gradiente = new GradientPaint(
                         0, 0, new Color(34, 133, 195),
-                        getWidth(), getHeight(), new Color(232, 45, 253)
-                );
+                        getWidth(), getHeight(), new Color(232, 45, 253));
                 g2d.setPaint(gradiente);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
@@ -43,8 +42,7 @@ public class interfacePanda extends JFrame {
         container.setBackground(new Color(0xFFF5F5));
         container.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2, true),
-                BorderFactory.createEmptyBorder(20, 20, 20, 20)
-        ));
+                BorderFactory.createEmptyBorder(20, 20, 20, 20)));
 
         // ======= TOPO (Título + Subtítulo) =======
         JPanel topo = new JPanel(new GridLayout(2, 1));
@@ -78,7 +76,7 @@ public class interfacePanda extends JFrame {
         tempoLabel.setForeground(Color.BLACK);
 
         // ======= BOTÕES DE AÇÕES =======
-       JPanel botoes = new JPanel(new GridLayout(3, 3, 10, 10));
+        JPanel botoes = new JPanel(new GridLayout(3, 3, 10, 10));
         botoes.setBackground(new Color(0xFFF5F5));
 
         JButton btnAlimentar = criarBotao("Alimentar");
@@ -177,12 +175,26 @@ public class interfacePanda extends JFrame {
         btn.setPreferredSize(new Dimension(90, 40));
         btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
+        // ===== HOVER =====
+        btn.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn.setBackground(new Color(0x9760B3)); // cor quando passa mouse
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn.setBackground(new Color(0xCA88EB)); // cor normal
+            }
+        });
+
         return btn;
     }
 
     // ATUALIZA TEXTO DA TELA PRETA
     private void atualizarStatus() {
-        if (panda == null) return;
+        if (panda == null)
+            return;
 
         imagemLabel.setText(
                 "<html><center>" +
@@ -193,8 +205,7 @@ public class interfacePanda extends JFrame {
                         "Sede: " + panda.sede + "<br>" +
                         "Felicidade: " + panda.felicidade + "<br>" +
                         "Saúde: " + panda.saude +
-                "</center></html>"
-        );
+                        "</center></html>");
     }
 
     // MAIN PARA TESTE ISOLADO
