@@ -121,9 +121,7 @@ public class interfacePanda extends JFrame {
         });
 
         btnSubir.addActionListener(e -> {
-            panda.subirArvore();
-            imagemLabel.setText(panda.nome + " está roendo um osso!");
-            atualizarStatus();
+            imagemLabel.setText(panda.nome + " está subindo a árvore!");
         });
 
         btnRosnar.addActionListener(e -> {

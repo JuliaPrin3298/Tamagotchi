@@ -86,7 +86,7 @@ public class interfaceCorvo extends JFrame {
         JButton btnBrincar = criarBotao("Brincar");
         JButton btnVeterinario = criarBotao("Veterinário");
         JButton btnPassear = criarBotao("Passear");
-        JButton btnSobrevoar = criarBotao("Roer Osso");
+        JButton btnSobrevoar = criarBotao("Sobrevoar");
         JButton btnGranir = criarBotao("Granir");
 
         // AÇÕES
@@ -121,9 +121,7 @@ public class interfaceCorvo extends JFrame {
         });
 
         btnSobrevoar.addActionListener(e -> {
-            corvo.Sobrevoar();
-            imagemLabel.setText(corvo.nome + "está sobrevoando o local");
-            atualizarStatus();
+            imagemLabel.setText(corvo.nome + " está sobrevoando o local");
         });
 
         btnGranir.addActionListener(e -> {
