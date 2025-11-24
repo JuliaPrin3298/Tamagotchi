@@ -121,9 +121,7 @@ public class interfaceCachorro extends JFrame {
         });
 
         btnRoer.addActionListener(e -> {
-            cachorro.roer();
             imagemLabel.setText(cachorro.nome + " está roendo um osso!");
-            atualizarStatus();
         });
 
         btnLatir.addActionListener(e -> {
